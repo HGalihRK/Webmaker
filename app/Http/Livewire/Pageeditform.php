@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Page;
 use Livewire\Component;
-
+use Livewire\WithFileUploads;
 class Pageeditform extends Component
 {
+    use WithFileUploads;
     public $content;
+    public $image;
     public function render()
     {
         return view('livewire.pageeditform');

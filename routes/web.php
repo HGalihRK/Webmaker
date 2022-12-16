@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Models\Menu;
 use App\Models\Page;
 use App\Models\Websetting;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->with('menus',Menu::all())->with('websetting',Websetting::first())->with('pages',Page::all());
 })->name('home');
 Route::get('/read/{id}',[PageController::class,'show'])->name('page.show');
 Route::middleware([

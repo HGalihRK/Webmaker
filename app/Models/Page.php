@@ -18,4 +18,9 @@ class Page extends Model
         'is_landing_page',
         'menu_title',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(PageImage::class);
+    }
 }
