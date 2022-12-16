@@ -1,5 +1,5 @@
 <div>
-    <x-heading :s=1 :e=0>Menu</x-heading>
+    <x-heading id="menu" :s=1 :e=0>Menu</x-heading>
 
     <x-collapseable>
         @foreach ($menus->where('parent_menu_id', null) as $menu)

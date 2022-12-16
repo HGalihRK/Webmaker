@@ -1,5 +1,5 @@
 <div>
-    <x-heading :s=1 :e=0>Pages</x-heading>
+    <x-heading id="page" :s=1 :e=0>Pages</x-heading>
     <x-list-stacked>
         @forelse ($pages as $page)
             <x-list-stacked-item title="{{ $page->title }}"
