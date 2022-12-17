@@ -41,11 +41,7 @@
                                                 class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                 aria-expanded="false">
                                                 <span>{{ $menu->title }}</span>
-                                                <!--
-Heroicon name: solid/chevron-down
 
-Item active: "text-gray-600", Item inactive: "text-gray-400"
--->
                                                 <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                     fill="currentColor" aria-hidden="true">
@@ -99,32 +95,32 @@ Item active: "text-gray-600", Item inactive: "text-gray-400"
                         md:pt-0">
                         @foreach ($menus->where('parent_menu_id', null) as $menu)
                             @if ($menu->children->count() != 0)
-                            <div x-data={submenu:false}>
-                                <li class="flex gap-5" >
-                                    <span @click="submenu = !submenu"
-                                        class="md:p-4 pl-5 pr-5 py-2 flex w-full justify-between items-center hover:bg-gray-500 text-black">
+                                <div x-data={submenu:false}>
+                                    <li class="flex gap-5">
+                                        <span @click="submenu = !submenu"
+                                            class="md:p-4 pl-5 pr-5 py-2 flex w-full justify-between items-center hover:bg-gray-500 text-black">
 
-                                        <a href="{{$menu->page_url}}">{{ $menu->title }}</a>
+                                            <a href="{{ $menu->page_url }}">{{ $menu->title }}</a>
 
 
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                    </span>
-                                    
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                        </span>
 
-                                </li>
-                                <div  x-show="submenu">
-                                    @foreach ($menu->children as $child)
-                                    <li class="bg-white">
-                                        <a class="md:p-4 pl-5 py-2 block  hover:bg-gray-500 text-black"
-                                            href="{{ $child->page_url }}">{{ $child->title }}</a>
+
                                     </li>
-                                    @endforeach
+                                    <div x-show="submenu">
+                                        @foreach ($menu->children as $child)
+                                            <li class="bg-white">
+                                                <a class="md:p-4 pl-5 py-2 block  hover:bg-gray-500 text-black"
+                                                    href="{{ $child->page_url }}">{{ $child->title }}</a>
+                                            </li>
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
                             @else
                                 <li>
                                     <a class="md:p-4 pl-5 py-2 block hover:bg-gray-500 text-black"
@@ -134,16 +130,7 @@ Item active: "text-gray-600", Item inactive: "text-gray-400"
                         @endforeach
                     </ul>
                 </div>
-                <!--
-    Mobile menu, show/hide based on mobile menu state.
-   
-    Entering: "duration-200 ease-out"
-    From: "opacity-0 scale-95"
-    To: "opacity-100 scale-100"
-    Leaving: "duration-100 ease-in"
-    From: "opacity-100 scale-100"
-    To: "opacity-0 scale-95"
-    -->
+
                 <div class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
                     <div
                         class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
@@ -207,7 +194,7 @@ Item active: "text-gray-600", Item inactive: "text-gray-400"
                                             </p>
                                         </a>
                                         <div class="mt-3">
-                                            <a href="#"
+                                            <a href="{{ route('page.show', $page->id) }}"
                                                 class="text-base font-semibold text-indigo-600 hover:text-indigo-500">
                                                 Read
                                                 full </a>
@@ -243,9 +230,7 @@ Item active: "text-gray-600", Item inactive: "text-gray-400"
                                     class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
                                     <img src="{{ asset('storage/' . $image->url) }}" alt=""
                                         class="object-cover pointer-events-none group-hover:opacity-75">
-                                    <button type="button" class="absolute inset-0 focus:outline-none">
-                                        <span class="sr-only">View details for IMG_4985.HEIC</span>
-                                    </button>
+                                  
                                 </div>
                                 <p
                                     class="mt-2 block text-lg font-medium text-black text-center truncate pointer-events-none">
@@ -356,7 +341,6 @@ Item active: "text-gray-600", Item inactive: "text-gray-400"
                     <p class="mt-8 text-center text-base text-gray-400">{{ $websetting->footer_text }}</p>
                 </div>
             </footer>
-            <!-- More main page content here... -->
         </main>
     </div>
 
