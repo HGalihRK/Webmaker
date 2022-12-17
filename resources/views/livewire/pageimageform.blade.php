@@ -12,7 +12,7 @@
                     <span class="sr-only">View details for IMG_4985.HEIC</span>
                 </button>
             </div>
-            <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">{{$image->caption}}</p>
+            <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">{{$image->caption}} {{$image->is_landing_page == 0 ? '':'(Shown In Main Page)'}}</p>
            <a wire:click="deleteImage({{$image->id}})"> <p class="block text-sm font-medium text-red-500 cursor-pointer">Delete</p></a>
         </li>
         @endforeach

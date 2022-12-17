@@ -29,7 +29,7 @@ class Pageeditform extends Component
         $this->page->content = $this->content;
         $this->page->subtitle = $this->subtitle;
         $this->page->is_landing_page = $this->is_hidden;
-        $this->page->order_number = $this->order_number;
+    $this->page->order_number = $this->order_number;
         $this->page->save();
     }
 

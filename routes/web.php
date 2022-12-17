@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome')->with('menus',Menu::all())->with('websetting',Websetting::first())
-    ->with('pages',Page::where('is_landing_page',1)->get())->with('images',PageImage::all());
+    ->with('pages',Page::where('is_landing_page',1)->get())->with('images',PageImage::where('is_landing_page',1)->get());
 })->name('home');
 Route::get('/read/{id}',[PageController::class,'show'])->name('page.show');
 Route::middleware([

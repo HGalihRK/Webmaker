@@ -89,7 +89,7 @@ Item active: "text-gray-600", Item inactive: "text-gray-400"
                     </nav>
 
                 </div>
-                <div x-show="open" class="md:hidden block w-full  mb-5 bg-gray-100 " id="menu">
+                <div x-show="open" class="md:hidden block w-full  pb-3 mb-5 bg-gray-100 " id="menu">
                     <ul
                         class="
                         pt-4
