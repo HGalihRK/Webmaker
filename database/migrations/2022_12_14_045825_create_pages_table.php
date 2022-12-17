@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('subtitle')->default('');
             $table->integer('order_number')->default(9999);
             $table->integer('is_hidden')->default(0);
-            $table->string('content')->nullable();
+            $table->longText('content')->nullable();
             $table->integer('is_landing_page')->default(0);
             $table->string('menu_title')->nullable();
             $table->timestamps();
