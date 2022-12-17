@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PageImage extends Model
 {
-    use HasFactory;
+    use HasFactory; 
     protected $fillable = [
         'page_id',
         'url',
