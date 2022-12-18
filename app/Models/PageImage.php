@@ -14,5 +14,7 @@ class PageImage extends Model
         'is_landing_page',
         'caption'
     ];
-    
+    public function page(){
+        return $this->belongsTo(Page::class);
+    }
 }

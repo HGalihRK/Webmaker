@@ -22,6 +22,7 @@ return new class extends Migration
             $table->longText('content')->nullable();
             $table->integer('is_landing_page')->default(0);
             $table->string('menu_title')->nullable();
+            $table->unsignedBigInteger('main_image')->nullable();
             $table->timestamps();
         });
     }
