@@ -129,7 +129,7 @@
 
             <div class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
                 <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-       
+
 
                 </div>
             </div>
@@ -145,23 +145,23 @@
             <h1 href="#" class="text-gray-900 text-center font-bold text-3xl mb-2"></h1>
 
             <ul role="list"
-            class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-2 xl:gap-x-8">
-            @foreach ($page->images as $image)
-                <li class="relative">
-                    <div
-                        class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-                        <img src="{{ asset('storage/' . $image->url) }}" alt=""
-                            class="object-cover pointer-events-none group-hover:opacity-75">
-                      
-                    </div>
-                    <p
-                        class="mt-2 block text-md font-medium text-gray-500 text-center truncate pointer-events-none">
-                        {{ $image->caption }}</p>
-                </li>
-            @endforeach
+                class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-2 xl:gap-x-8">
+                @foreach ($page->images as $image)
+                    <li class="relative">
+                        <div
+                            class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                            <img src="{{ asset('storage/' . $image->url) }}" alt=""
+                                class="object-cover pointer-events-none group-hover:opacity-75">
 
-            <!-- More files... -->
-        </ul>
+                        </div>
+                        <p
+                            class="mt-2 block text-md font-medium text-gray-500 text-center truncate pointer-events-none">
+                            {{ $image->caption }}</p>
+                    </li>
+                @endforeach
+
+                <!-- More files... -->
+            </ul>
         </div>
 
         <div class="max-w-7xl mx-auto">
@@ -239,4 +239,10 @@
             <p class="mt-8 text-center text-base text-gray-400">{{ $websetting->footer_text }}</p>
         </div>
     </footer>
+
+    <style>
+        li{
+            list-style: bullet;
+        }
+    </style>
 </x-guest-layout>
