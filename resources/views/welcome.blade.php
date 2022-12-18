@@ -158,8 +158,8 @@
                                 <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                                     <span class="block text-white">{{ $websetting->page_title }}</span>
                                 </h1>
-                                <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">Anim
-                                    {{ $websetting->subtitle }}</p>
+                                <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">
+                                    {{ $websetting->tag }}</p>
 
                             </div>
                         </div>
