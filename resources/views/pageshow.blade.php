@@ -118,7 +118,9 @@
         .unreset ol ol {
             list-style: upper-alpha;
         }
-
+        .unreset img{
+            display: inline-block;
+        }
         .unreset ol ol ol {
             list-style: lower-roman;
         }
