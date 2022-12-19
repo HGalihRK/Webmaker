@@ -55,5 +55,8 @@
             list-style: bullet;
             margin-left: 40px;
         }
+        #content img {
+            display: inline-block;
+        }
     </style>
 </x-guest-layout>
