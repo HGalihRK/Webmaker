@@ -40,7 +40,11 @@
                                         <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                                             <div class="flex-shrink-0">
                                                <a href="{{route('page.show',$page->id)}}"> <img class="h-48 w-full object-cover"
-                                                    src="{{asset('storage/'.$page->images->first()->url)}}"
+                                                @if($page->images->first())    
+                                                src="{{asset('storage/'.$page->images->first()->url)}}"
+                                                @else
+                                                src="{{asset('storage/'.$websetting->banner_img_url)}}"
+                                                @endif
                                                     alt=""></a>
                                             </div>
                                             <div class="flex-1 bg-white p-6 flex flex-col justify-between">
