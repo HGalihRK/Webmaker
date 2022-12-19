@@ -19,7 +19,7 @@ class Pageeditform extends Component
         $this->title = $this->page->title;
         $this->content = $this->page->content;
         $this->subtitle = $this->page->subtitle;
-        $this->is_hidden = $this->page->is_hidden;
+        $this->is_hidden = $this->page->is_landing_page;
         $this->order_number = $this->page->order_number;
 
     }
