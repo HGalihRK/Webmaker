@@ -18,12 +18,13 @@
                             </div>
 
                         </div>
-                        <p class="text-3xl font-semibold text-center mt-12 text-gray-900">{{ $websetting->tag }}</p>
-                        <p class=" mb-20 text-base text-center mt-12 text-black">{{ $websetting->home_content }}</p>
+ 
 
                     </div>
                 </div>
                 <div class="bg-white">
+                    <p class="text-3xl font-semibold text-center mt-12 text-gray-900">{{ $websetting->tag }}</p>
+                    <p class=" mb-20 text-base text-center mt-12 text-black">{{ $websetting->home_content }}</p>    
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
                         <!-- This example requires Tailwind CSS v2.0+ -->
