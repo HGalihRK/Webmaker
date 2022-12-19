@@ -2,9 +2,9 @@
     <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">
 
         <div class="mt-5 mb-5 max-w-7xl mx-auto">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">
                 {{ $page->title }}</h2>
-            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
+            <p class="mb-8 lg:mb-16 font-light text-center text-blacksm:text-xl">
                 {{ $page->subtitle }}</p>
             <h1 href="#" class="text-gray-900 text-center font-bold text-3xl mb-2"></h1>
 
