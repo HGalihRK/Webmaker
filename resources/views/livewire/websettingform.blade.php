@@ -20,7 +20,9 @@
             <x-label>Footer Text</x-label>
             <x-input-textarea wire:model="footer_text">{{ $footer_text }}</x-input-textarea>
             <x-label>Home Content</x-label>
-            <x-input-textarea id="home_content" wire:model="home_content">{{ $footer_text }}</x-input-textarea>
+            <div wire:ignore>
+            <x-input-textarea id="home_content" wire:model="home_content">{{$home_content}}</x-input-textarea>
+            </div>
             <x-label>Banner Image</x-label>
             @if($banner)
             <x-input-cover-image wire:model="banner">{{$banner->temporaryUrl()}}</x-input-cover-image>

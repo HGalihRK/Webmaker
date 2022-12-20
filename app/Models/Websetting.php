@@ -17,5 +17,6 @@ class Websetting extends Model
         'logo_url',
         'footer_text',
         'banner_img_url',
+        'home_content'
     ];
 }

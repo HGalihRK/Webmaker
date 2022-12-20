@@ -51,7 +51,8 @@ class Websettingform extends Component
             'banner_img_url' => $this->banner_img_url,
             'home_content'=> $this->home_content
         ]);
-
+        
+        
         
 
         #return success if no error
