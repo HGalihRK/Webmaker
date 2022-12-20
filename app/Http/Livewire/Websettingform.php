@@ -10,6 +10,7 @@ class Websettingform extends Component
 {
     use WithFileUploads;
     public $logo;
+    public $home_content;
     public $banner;
     public function render()
     {
@@ -25,6 +26,8 @@ class Websettingform extends Component
         $this->email = $this->websetting->email;
         $this->google_map_url = $this->websetting->google_map_url;
         $this->logo_url = $this->websetting->logo_url;
+        $this->home_content = $this->websetting->home_content;
+
         $this->footer_text = $this->websetting->footer_text;
         $this->banner_img_url = $this->websetting->banner_img_url;
     }
@@ -46,7 +49,10 @@ class Websettingform extends Component
             'logo_url' => $this->logo_url,
             'footer_text' => $this->footer_text,
             'banner_img_url' => $this->banner_img_url,
+            'home_content'=> $this->home_content
         ]);
+
+        
 
         #return success if no error
         session()->flash('message', 'Websetting Updated Successfully.');

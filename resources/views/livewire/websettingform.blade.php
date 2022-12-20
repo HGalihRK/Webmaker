@@ -19,6 +19,8 @@
         <div class="col-span-6">
             <x-label>Footer Text</x-label>
             <x-input-textarea wire:model="footer_text">{{ $footer_text }}</x-input-textarea>
+            <x-label>Home Content</x-label>
+            <x-input-textarea id="home_content" wire:model="home_content">{{ $footer_text }}</x-input-textarea>
             <x-label>Banner Image</x-label>
             @if($banner)
             <x-input-cover-image wire:model="banner">{{$banner->temporaryUrl()}}</x-input-cover-image>
@@ -46,3 +48,11 @@
         </x-slot>
     </x-form>
 </div>
+<script src="https://cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script>
+
+<script>
+    const editor = CKEDITOR.replace('home_content');
+    editor.on('change', function(event){
+        @this.set('home_content', event.editor.getData());
+    })
+</script>
