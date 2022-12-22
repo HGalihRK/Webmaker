@@ -27,7 +27,10 @@ class Websettingform extends Component
         $this->google_map_url = $this->websetting->google_map_url;
         $this->logo_url = $this->websetting->logo_url;
         $this->home_content = $this->websetting->home_content;
-
+        $this->text_color = $this->websetting->text_color;
+        $this->text_secondary_color = $this->websetting->text_secondary_color;
+        $this->link_color = $this->websetting->link_color;
+        $this->nav_color = $this->websetting->nav_color;
         $this->footer_text = $this->websetting->footer_text;
         $this->banner_img_url = $this->websetting->banner_img_url;
     }

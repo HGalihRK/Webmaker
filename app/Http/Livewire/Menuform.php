@@ -12,6 +12,7 @@ class Menuform extends Component
     public $custom;
     public $menus;
     public $pages;
+    public $select_menu;
     public $page_url;
     public $title;
     public $parent_menu_id;
@@ -33,6 +34,9 @@ class Menuform extends Component
         $this->page_url = '';
         $this->order_no = 9999;
         $this->title = '';
+        $this->custom = '';
+        $this->parent_menu_id = null;
+        $this->select_menu = null;
     }
     #close modal
     public function closeModal()
@@ -43,6 +47,20 @@ class Menuform extends Component
     #save data
     public function saveModal()
     {
+        if($this->parent_menu_id == "No Parent"){
+            $this->parent_menu_id = null;
+        }
+        if($this->select_menu){
+            $this->select_menu->update([
+                'page_url' => $this->page_url,
+                'title' => $this->title,
+                'parent_menu_id' => $this->parent_menu_id,
+                'order_no' => $this->order_no,
+            ]);
+            $this->modal = false;
+            $this->mount();
+            return;
+        }
         Menu::create([
             'page_url' => $this->page_url,
             'title' => $this->title,
@@ -64,5 +82,15 @@ class Menuform extends Component
         $this->mount();
         $this->menus = Menu::all();
         return redirect(route('dashboard'));
+    }
+
+    public function edit($id){
+        $this->modal = true;
+        $this->select_menu = Menu::find($id);
+        $this->custom = $this->select_menu->page_url;
+        $this->page_url = $this->select_menu->page_url;
+        $this->title = $this->select_menu->title;
+        $this->parent_menu_id = $this->select_menu->parent_menu_id;
+        $this->order_no = $this->select_menu->order_no;
     }
 }

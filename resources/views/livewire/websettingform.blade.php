@@ -14,6 +14,16 @@
         @endif
         <x-label>Google Map URL</x-label>
         <x-input-text wire:model="google_map_url" value="{{ $google_map_url }}"></x-input-text>
+        <x-label>Navigation Color</x-label>
+        <x-input-text wire:model="nav_color" value="{{ $nav_color }}"></x-input-text>
+        <x-label>Text Color</x-label>
+        <x-input-text wire:model="text_color" value="{{ $text_color }}"></x-input-text>
+        <x-label>Text Secondary Color</x-label>
+        <x-input-text wire:model="text_secondary_color" value="{{ $text_secondary_color }}"></x-input-text>
+        <x-label>Link Color</x-label>
+
+        <x-input-text wire:model="link_color" value="{{ $link_color }}"></x-input-text>
+
 
 
         <div class="col-span-6">

@@ -3,20 +3,34 @@
 
     <x-collapseable>
         @foreach ($menus->where('parent_menu_id', null) as $menu)
-        <x-collapseable-item :c="$menu->children->count()" :id="$menu->id">{{ $menu->title }}
-            <x-slot name="action">
-                @if(!$loop->first)
-                wire:click="delete({{ $menu->id }})"
-                @else
-                class="text-white"
-                @endif
-            </x-slot>
-            <x-slot name="children">
-                @foreach ($menu->children as $child)
-                    <li>{{$child->title}}</li>
-                
-                @endforeach
-            </x-slot>
+            <x-collapseable-item :c="$menu->children->count()" :id="$menu->id">{{ $menu->title }}
+                <x-slot name="deleteaction">
+                    @if (!$loop->first)
+                        wire:click="delete({{ $menu->id }})"
+                    @endif
+                </x-slot>
+                <x-slot name="editaction">
+                    wire:click="edit({{ $menu->id }})"
+
+                </x-slot>
+                <x-slot name="children">
+                    @foreach ($menu->children as $child)
+                        <li>
+                            <x-collapseable-item :c="$child->children->count()" :id="$child->id">{{ $child->title }}
+                                <x-slot name="deleteaction">
+                                        wire:click="delete({{ $child->id }})"
+                                </x-slot>
+                                <x-slot name="editaction">
+                                    wire:click="edit({{ $child->id }})"
+
+                                </x-slot>
+                                <x-slot name="children">
+                                    
+                </x-slot>
+                </x-collapsable-item>
+                </li>
+        @endforeach
+        </x-slot>
         </x-collapsable-item>
         @endforeach
     </x-collapseable>
@@ -37,10 +51,14 @@
             <x-label>Page URL</x-label>
 
             <x-input-select wire:model="page_url">
-                @foreach ($pages as $page)
-                    <option value="{{ route('page.show', $page->id) }}">{{ $page->title }}</option>
-                @endforeach
                 <option value="{{ $custom }}">Custom URL</option>
+                @foreach ($pages as $page)
+                    @if ($page_url == route('page.show', $page->id))
+                        <option selected value="{{ route('page.show', $page->id) }}">{{ $page->title }}</option>
+                    @else
+                        <option value="{{ route('page.show', $page->id) }}">{{ $page->title }}</option>
+                    @endif
+                @endforeach
             </x-input-select>
 
             @php

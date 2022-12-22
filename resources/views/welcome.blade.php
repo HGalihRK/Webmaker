@@ -4,7 +4,7 @@
 
 
         <main>
-            <div class="bg-white pb-20">
+            <div class="bg-white">
                 <!-- Hero card -->
                 <div class="relative">
                     <div class="absolute inset-x-0 top-0 h-full bg-white"></div>
@@ -105,56 +105,71 @@
 
                                 <!-- More files... -->
                             </ul>
+
+
+                        </div>
+                        <div class="flex py-5 m-auto text-gray-800 text-sm flex-col items-center border-t ">
                         </div>
                     </section>
-                    <div>
-                        <section class="bg-white mt-20 dark:bg-gray-900 sm:py-20">
-                            <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md bg-white rounded-lg ">
-                                <h2
-                                    class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-                                    Contact Us</h2>
-                                <p
-                                    class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-                                    Hubungi kami untuk informasi lebih lanjut.</p>
-                                <form action="#" class="space-y-8">
-                                    <div>
-                                        <label for="email"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
-                                            email</label>
-                                        <input type="email" id="email"
-                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                                            placeholder="name@flowbite.com" required>
-                                    </div>
-                                    <div>
-                                        <label for="subject"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-                                        <input type="text" id="subject"
-                                            class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                                            placeholder="Let us know how we can help you" required>
-                                    </div>
-                                    <div class="sm:col-span-2">
-                                        <label for="message"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your
-                                            message</label>
-                                        <textarea id="message" rows="6"
-                                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                            placeholder="Leave a comment..."></textarea>
-                                    </div>
-                                    <button type="submit"
-                                        class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send
-                                        message</button>
-                                </form>
-                            </div>
-                        </section>
-                    </div>
-                    <footer class="bg-white">
-                        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
 
 
-                            <p class="mt-8 text-center text-base text-gray-400">{{ $websetting->footer_text }}</p>
-                        </div>
-                    </footer>
+
+
+
         </main>
+        <div class="bg-white">
+            <div class="max-w-screen-xl px-4 sm:px-6 text-gray-800 sm:flex justify-between mx-auto">
+                <div class="p-5 sm:w-8/12">
+                    <h3 class="font-bold text-3xl text-black mb-4">Kirim Pesan</h3>
+                    <form method="POST" action="{{ route('sendEmail') }}">
+                        @csrf
+                        <div class=" grid-cols-2 gap-x-10 grid">
+                            <div class=" col-span-1">
+                                <x-label>Subjek</x-label>
+
+                                <input name="subject"
+                                    class="border rounded w-full border-gray-300  px-4 py-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    type="text" placeholder="Pertanyaan seputar ....">
+                            </div>
+                            <div class=" col-span-1">
+
+                                <x-label>Email</x-label>
+                                <input name="email"
+                                    class="border w-full border-gray-300 rounded  px-4 py-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    type="email" placeholder="username@email.com">
+                            </div>
+                            <div class=" col-span-1">
+
+                                <x-label>Nama Pengirim</x-label>
+                                <input name="name"
+                                    class="border w-full border-gray-300 rounded  px-4 py-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    type="text" placeholder="Eko">
+                            </div>
+                            <div class=" col-span-2">
+
+                                <x-label>Pesan</x-label>
+                                <x-input-textarea name="message"></x-input-textarea>
+                            </div>
+
+
+                        </div>
+                        <x-jet-button class="mt-4">Kirim</x-jet-button>
+
+                    </form>
+
+                </div>
+                <div class=" text-center sm:w-4/12">
+                    <h3 class="font-bold text-3xl text-black mb-4">Google Map</h3>
+                    <img class="inline-block max-w-xs"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Google_Maps_icon_%282015-2020%29.svg/1200px-Google_Maps_icon_%282015-2020%29.svg.png">
+
+                </div>
+            </div>
+
+        </div>
+        <div class="flex py-5 m-auto text-gray-800 text-sm flex-col items-center border-t ">
+            <p>{{ $websetting->footer_text }}</p>
+        </div>
     </div>
 
 </x-guest-layout>

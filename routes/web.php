@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PageController;
 use App\Models\Menu;
 use App\Models\Page;
@@ -23,6 +24,8 @@ Route::get('/', function () {
     ->with('pages',Page::where('is_landing_page',1)->get())->with('images',PageImage::where('is_landing_page',1)->get());
 })->name('home');
 Route::get('/read/{id}',[PageController::class,'show'])->name('page.show');
+Route::POST('/send/email',[MessageController::class,'send'])->name('sendEmail');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

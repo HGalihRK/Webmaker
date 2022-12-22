@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Models\Message;
+use App\Models\Websetting;
+use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
@@ -18,6 +20,20 @@ class MessageController extends Controller
         //
     }
 
+    public function send(Request $request){
+        $message = new Message();
+        $message->name = $request->name;
+        $message->title = $request->subject;
+        $message->phone = "0";
+        $message->address = "";
+        $message->city = "";
+        $message->postcode = "";
+
+        $message->email = $request->email;
+        $message->message = $request->message;
+        $message->save();
+        return redirect()->back()->with('success', 'Message sent successfully');
+    }
     /**
      * Show the form for creating a new resource.
      *
