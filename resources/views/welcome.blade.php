@@ -108,7 +108,7 @@
 
 
                         </div>
-                        <div class="flex py-5 m-auto text-gray-800 text-sm flex-col items-center border-t ">
+                        <div class="flex mt-10 py-5 m-auto text-gray-800 text-sm flex-col items-center border-t ">
                         </div>
                     </section>
 
